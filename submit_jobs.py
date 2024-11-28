@@ -1,6 +1,8 @@
 import os
 import sys
 
+import subprocess
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print(f"{sys.argv[0]} <slurm_dir>")
@@ -13,7 +15,8 @@ if __name__ == "__main__":
         if not jfile.endswith(f".sh"):
             continue
         print(f"submit job: {jf}")
-        os.system(f"sbatch {jfile}")
+        p = subprocess.run(["sbatch", jfile], text=True, capture_output=True)
+        print(f"jobid={p.stdout}")
         num_jobs += 1
     
     print(f"Number of jobs submitted: {num_jobs}")
