@@ -16,7 +16,7 @@ if __name__ == "__main__":
             continue
         print(f"submit job: {jf}")
         p = subprocess.run(["sbatch", jfile], text=True, capture_output=True)
-        print(f"jobid={p.stdout}")
+        print(f"jobid={p.stdout.split()[-1]}")
         num_jobs += 1
     
     print(f"Number of jobs submitted: {num_jobs}")
