@@ -9,12 +9,12 @@
 #SBATCH --mail-type=begin        # send email when job begins
 #SBATCH --mail-type=end          # send email when job ends
 #SBATCH --mail-type=fail         # send email if job fails
-#SBATCH --mail-user=rl6004@cs.princeton.edu
+#SBATCH --mail-user=
 
 conda init bash
 source ~/.bashrc
 
-PROJ_PATH=/n/fs/ragr-research/users/rl6004/project-551
+PROJ_PATH=.
 VCMSA_PATH=${PROJ_PATH}/vcmsa
 
 conda activate ${PROJ_PATH}/vcmsa_env
